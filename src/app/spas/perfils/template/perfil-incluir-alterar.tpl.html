@@ -1,0 +1,88 @@
+<style>
+  .btn-space {
+    margin-right: 10px;
+  }
+
+  myModal {
+    z-index: 2147483647;
+  }
+
+  .disabledDiv {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+</style>
+
+<div ng-init="vm.init()">
+  <div
+    class="container"
+    style="overflow-y: auto; overflow-x: hidden; height: 425px"
+  >
+    <form>
+      <div class="mx-auto" style="width: 200px;">
+        <h5 class="modal-title">Cadastrar Perfil</h5>
+      </div>
+      <div class="form-group">
+        <label style="font-weight: 500;" for="nomePerfil">Nome: </label>
+        <input
+          type="nome"
+          class="form-control"
+          id="nomePerfil"
+          ng-model="vm.perfil.nome"
+          placeholder="Digite o nome do perfil ..."
+        />
+      </div>
+      <div class="form-group">
+      <label style="font-weight: 500;" for="descricaoPerfil">Descrição</label>
+      <div>
+        <textarea rows = "3" cols = "117" name = "description" style="border-radius: 2%;"></textarea>
+      </div>
+    </div>
+      <div class="row" style="margin-left: 1px;">
+        <div class="form-group">
+          <label style="font-weight: 500;" for="inclusaoPerfil" style="width: 250px;"
+            >Data de Inclusão</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="dataInclusao"
+            ui-mask="99/99/9999"
+            style="width: 120px; background: #DCDCDC;"
+          />
+        </div>
+      </div>
+      <div class="row" style="margin-left: 1px;">
+        <div class="form-group">
+          <label style="font-weight: 500;" for="inclusaoPerfil" style="width: 250px;"
+            >Data de Alteração</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="dataInclusao"
+            ui-mask="99/99/9999"
+            ng-keypress="vm.formataDataTela($event)"
+            style="width: 120px; background: #DCDCDC"
+          />
+        </div>
+      </div>
+    </div>
+        <div class="modal-footer" style="padding-top: 25px; padding-left: 70px;" >
+          <button
+            type="button"
+            class="btn btn-primary btn-space"
+            data-dismiss="modal"
+          >
+            Salvar
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            ng-click="vm.limparTela()"
+          >
+            Cancelar
+          </button>
+        </div>
+  </div>
+</div>
